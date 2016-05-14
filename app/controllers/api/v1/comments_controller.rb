@@ -1,6 +1,13 @@
 class Api::V1::CommentsController < ApplicationController
 	before_action :find_book
 
+	# GET /api/v1/books/:id/comments
+	def index
+		unless @book.nil?
+			@comments = @book.comments
+		end
+	end
+
 	# POST /api/v1/books/:id/comments
 	def create
 		unless @book.nil?
@@ -19,7 +26,7 @@ class Api::V1::CommentsController < ApplicationController
 	private
 
 	def find_book
-		@book = Book.find(params[:book_id])
+		@book = Book.find_by(id: params[:book_id])
 	end
 
 	def comment_params
