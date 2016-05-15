@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515082006) do
+ActiveRecord::Schema.define(version: 20160515152547) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "book_id",    limit: 4
@@ -30,11 +30,20 @@ ActiveRecord::Schema.define(version: 20160515082006) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.integer  "isbn",       limit: 4
-    t.text     "des",        limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",       limit: 255
+    t.integer  "isbn",        limit: 4
+    t.text     "des",         limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "category_id", limit: 4
+  end
+
+  add_index "books", ["category_id"], name: "index_books_on_category_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -49,5 +58,6 @@ ActiveRecord::Schema.define(version: 20160515082006) do
 
   add_foreign_key "assignments", "authors"
   add_foreign_key "assignments", "books"
+  add_foreign_key "books", "categories"
   add_foreign_key "comments", "books"
 end
