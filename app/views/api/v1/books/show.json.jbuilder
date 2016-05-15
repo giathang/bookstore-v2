@@ -8,6 +8,7 @@ else
 		end
 		json.authors @book.authors do |author|
 			json.extract author, :id, :name
-	end
+		end
+		json.extract! @book.category, :id, :category_name
 	end
 end
