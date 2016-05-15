@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514175453) do
+ActiveRecord::Schema.define(version: 20160515082006) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "book_id",    limit: 4
+    t.integer  "author_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "assignments", ["author_id"], name: "index_assignments_on_author_id", using: :btree
+  add_index "assignments", ["book_id"], name: "index_assignments_on_book_id", using: :btree
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "books", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -31,5 +47,7 @@ ActiveRecord::Schema.define(version: 20160514175453) do
 
   add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
 
+  add_foreign_key "assignments", "authors"
+  add_foreign_key "assignments", "books"
   add_foreign_key "comments", "books"
 end
