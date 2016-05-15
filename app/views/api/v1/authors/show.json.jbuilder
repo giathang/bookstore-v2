@@ -3,5 +3,8 @@ if @author.nil?
 else
 	json.author do
 		json.extract! @author, :id, :name
+		json.books @author.books do |book|
+			json.extract! book, :id, :title
+		end
 	end
 end
