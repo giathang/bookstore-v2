@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.body{
+  position: absolute;
+  .body-left{
+    float:left;
+  }
+  .body-right{
+    float:right;
+    margin-left: 100px;
+  }
+
+}

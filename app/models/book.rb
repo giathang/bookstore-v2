@@ -3,4 +3,5 @@ class Book < ActiveRecord::Base
 
   validates_presence_of :title, :isbn, :des, :category_id
   validates :isbn, length: {maximum: 5}
+
 end

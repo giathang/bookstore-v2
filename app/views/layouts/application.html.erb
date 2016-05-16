@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class="body">
+    <div class="body-left">
+      <%= render template: 'categories/index' %>
+    </div>
+    <div class="body-right">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Listing Categories</h1>
 
@@ -13,9 +13,8 @@
   <tbody>
   <% @categories.each do |category| %>
     <tr>
-      <td><%= category.category_name %></td>
+      <td><%= link_to category.category_name, category %></td>
 
-      <td><%= link_to 'Show', category %></td>
       <td><%= link_to 'Edit', edit_category_path(category) %></td>
       <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
@@ -26,3 +25,4 @@
 <br>
 
 <%= link_to 'New Category', new_category_path %>
+<%= link_to 'Seen Books', books_path %>
