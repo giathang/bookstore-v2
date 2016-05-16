@@ -26,6 +26,7 @@
 
   <div class="field">
     <%= f.collection_select(:category_id, Category.all, :id, :category_name) %>
+    <p><%= link_to 'New Category', new_category_path %></p>
   </div>
 
   <div class="actions">
