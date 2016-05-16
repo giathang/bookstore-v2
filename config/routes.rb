@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :authors
+  resources :categories, only: :show
 
   #API
   namespace :api, defaults: {format: 'json'} do
