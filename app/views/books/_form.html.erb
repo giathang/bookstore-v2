@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :isbn %><br>
     <%= f.number_field :isbn %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :des %><br>
     <%= f.text_area :des %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.collection_select(:category_id, Category.all, :id, :category_name) %>
     <p><%= link_to 'New Category', new_category_path %></p>
   </div>
 
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit %>
   </div>
 <% end %>

@@ -7,13 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="body">
-    <div class="body-left">
-      <%= render template: 'categories/index' %>
+
+  <nav class="nav navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to "Book Store", root_path, class: "navbar-brand" %>
+      </div>
+      <div id="navbar">
+        <ul class="nav navbar-nav">
+        </ul>
+      </div>
     </div>
-    <div class="body-right">
-      <%= yield %>
+  </nav>
+
+  <div class="container">
+    <div class="body">
+      <div class="body-left">
+        <%= render template: 'categories/index' %>
+      </div>
+      <div class="body-right">
+        <%= yield %>
+      </div>
     </div>
   </div>
+
 </body>
 </html>
