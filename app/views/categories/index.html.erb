@@ -7,6 +7,7 @@
     <li class="list-group-item"><%= link_to category.category_name, category %>
       <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-default'%>
       <%= link_to 'Delete', category,method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%>
+      <span class="badge"><%= category.books.count %></span>
     </li>
   <% end %>
 </ul>
