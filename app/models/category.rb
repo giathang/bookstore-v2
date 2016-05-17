@@ -7,10 +7,7 @@ class Category < ActiveRecord::Base
 
   def no_reference_books
     unless books.nil?
-      books.map do |book|
-        book.category_id = nil
-        book.save
-      end
+      books.update_all(category_id: nil)
     end
   end
 end
