@@ -4,19 +4,19 @@
     <data-source source="LOCAL" name="Rails bookstore-v2: development" uuid="49e6ff80-6f2d-412d-8a1d-4da0105368fb">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/bookstore-v2_development</jdbc-url>
+      <jdbc-url>jdbc:mysql://127.0.0.1:8888/bookstore-v2_development</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails bookstore-v2: test" uuid="9dd9641a-6ea2-4a37-9ee2-c06957d08c65">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/bookstore-v2_test</jdbc-url>
+      <jdbc-url>jdbc:mysql://127.0.0.1:8888/bookstore-v2_test</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails bookstore-v2: production" uuid="f90d1f3b-0b07-410f-996f-37e17561f1e7">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/bookstore-v2_production</jdbc-url>
+      <jdbc-url>jdbc:mysql://127.0.0.1:8888/bookstore-v2_production</jdbc-url>
       <libraries />
     </data-source>
   </component>

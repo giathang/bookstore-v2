@@ -7,29 +7,35 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Create Category
-Category.create(category_name: "Hoat Hoa")
-Category.create(category_name: "Khoa Hoc")
-Category.create(category_name: "Toan Hoc")
+categories_list = [
+    'Hoat Hoa',
+    'Khoa Hoc',
+    'Toan Hoc'
+]
+categories_list.each do |category|
+  Category.create(category_name: category)
+end
 
-# Create Book
+books_list = [
+    ['Doremon', 'Truyen Tranh Do Re Mon', 123, 1],
+    ['Doremon', 'Truyen Tranh Do Re Mon', 122, 1],
+    ['Doremon', 'Truyen Tranh Do Re Mon', 121, 1],
+    ['Doremon', 'Truyen Tranh Do Re Mon', 120, 1],
+    ['Doremon', 'Truyen Tranh Do Re Mon', 126, 1],
 
-Book.create(title: "Doremon", isbn: 1, des: "Truyen tranh doremon", category_id: 1)
-Book.create(title: "Jindo", isbn: 2, des: "Truyen tranh Jindo", category_id: 1)
-Book.create(title: "Than Dong Dat Viet", isbn: 3, des: "Truyen tranh ve Trang Ti", category_id: 1)
-Book.create(title: "7 vien ngoc rong", isbn: 4, des: "Truyen tranh Songoku", category_id: 1)
-Book.create(title: "Thuy Thu Mat Trang", isbn: 5, des: "Truyen tranh ", category_id: 1)
+    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 133, 2],
+    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 132, 2],
+    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 131, 2],
+    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 135, 2],
+    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 137, 2],
 
-Book.create(title: "em yeu khoa hoc", isbn: 6, des: "Ve Khoa hoc", category_id: 2)
-Book.create(title: "Khoa hoc quanh day", isbn: 7, des: "Ve Khoa hoc", category_id: 2)
-Book.create(title: "Dinh Luat Niuton", isbn: 8, des: "Ve Khoa hoc", category_id: 2)
-Book.create(title: "Dinh Luat Quan tinh", isbn: 9, des: "Ve Khoa hoc", category_id: 2)
-Book.create(title: "Vat Ly 12", isbn: 10, des: "Ve Khoa hoc", category_id: 2)
+    ['Toan Lop 12', 'tinh roi toan ', 156, 3],
+    ['Toan Lop 12', 'tinh roi toan ', 155, 3],
+    ['Toan Lop 12', 'tinh roi toan ', 152, 3],
+    ['Toan Lop 12', 'tinh roi toan ', 151, 3],
+    ['Toan Lop 12', 'tinh roi toan ', 150, 3],
+]
 
-Book.create(title: "Toan 10", isbn: 11, des: "Ve Toan hoc", category_id: 3)
-Book.create(title: "thap phan", isbn: 12, des: "Ve Toan hoc", category_id: 3)
-Book.create(title: "nhi phan", isbn: 13, des: "Ve Toan hoc", category_id: 3)
-Book.create(title: "Dao Ham", isbn: 14, des: "Ve Toan hoc", category_id: 3)
-Book.create(title: "Tam Giac", isbn: 15, des: "Ve Toan hoc", category_id: 3)
-
-
-
+books_list.each do |title, des, isbn, category_id|
+  Book.create(title: title, des: des, isbn: isbn, category_id: category_id)
+end

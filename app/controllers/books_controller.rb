@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :set_category
+  before_action :get_categories
   # GET /books
   # GET /books.json
   def index
@@ -62,7 +62,7 @@ class BooksController < ApplicationController
   end
 
   private
-    def set_category
+    def get_categories
       @categories = Category.all
     end
     # Use callbacks to share common setup or constraints between actions.

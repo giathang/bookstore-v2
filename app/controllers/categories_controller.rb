@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:edit, :update, :show, :destroy]
-  before_action :set_category
+  before_action :get_categories
 
   def index
   end
@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
 
   private
 
-  def set_category
+  def get_categories
     @categories = Category.all
   end
 
