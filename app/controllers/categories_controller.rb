@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to categories_path
+    redirect_to books_path
   end
 
   private
@@ -37,7 +37,7 @@ class CategoriesController < ApplicationController
   end
 
   def find_category
-    @category = Category.find_by(id: params[:id])
+    @category = Category.find(params[:id])
   end
 
   def category_params
