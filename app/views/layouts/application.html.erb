@@ -13,12 +13,11 @@
       <div class="navbar-header">
         <%= link_to "Book Store", root_path, class: "navbar-brand" %>
       </div>
-      <div id="navbar">
-        <ul class="nav navbar-nav">
-        </ul>
-      </div>
     </div>
   </nav>
+  <div class="container">
+     <%= breadcrumbs pretext: "Estas en: ", display_single_fragment: true, style: :bootstrap %>
+  </div>
 
   <div class="container">
     <div class="body">

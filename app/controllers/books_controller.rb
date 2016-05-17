@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :get_categories
+
+
   # GET /books
   # GET /books.json
   def index
