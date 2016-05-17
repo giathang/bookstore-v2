@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    redirect_to categories_path
+    redirect_to books_path
   end
 
   def edit

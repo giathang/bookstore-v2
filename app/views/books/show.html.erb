@@ -17,7 +17,11 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @book.category.category_name %>
+  <% if @book.category.nil? %>
+  <td>Nil</td>
+  <% else %>
+  <td><%= @book.category.category_name %></td>
+<% end %>
 </p>
 
 
