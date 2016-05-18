@@ -23,7 +23,7 @@
         <td><%= book.isbn %></td>
         <td><%= book.des %></td>
         <% if book.category.nil? %>
-          <td>Nil</td>
+          <td>No Category</td>
         <% else %>
           <td><%= book.category.category_name %></td>
         <% end %>

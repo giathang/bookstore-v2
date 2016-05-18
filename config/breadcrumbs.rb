@@ -13,7 +13,7 @@ crumb :book do |book|
 end
 
 crumb :no_category_book do |book|
-  link "#{book.title}", book
+  link "Category / No Category / #{book.title}", book
   parent :root
 end
 
