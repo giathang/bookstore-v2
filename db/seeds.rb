@@ -1,19 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# Create Category
 categories_list = [
     'Hoat Hoa',
     'Khoa Hoc',
     'Toan Hoc'
 ]
 categories_list.each do |category|
-  Category.create(category_name: category)
+    Category.create(category_name: category)
 end
 
 books_list = [
@@ -37,5 +28,5 @@ books_list = [
 ]
 
 books_list.each do |title, des, isbn, category_id|
-  Book.create(title: title, des: des, isbn: isbn, category_id: category_id)
+    Book.create(title: title, des: des, isbn: isbn, category_id: category_id)
 end
