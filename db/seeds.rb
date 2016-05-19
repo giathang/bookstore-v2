@@ -5,32 +5,81 @@ categories_list = [
 ]
 
 books_list = [
-    ['The Fault in our Stars ', '(Khi lỗi thuộc về những vì sao)', 2],
-    ['The Catcher in the Rye ', 'Bắt trẻ đồng xanh', 4],
-    ['The Book Thief', 'Kẻ trộm sách', 6],
-    ['The Drifters', 'Sáu người đi khắp thế gian', 7],
-    ['To Kill a Mockingbird', 'Giết con chim nhại', 1],
-    ['Biển Và Chim Bói Cá', 'Biển Và Chim Bói Cá', 3],
-    ['Sào huyệt của nhũng ông trùm', 'Sào huyệt của nhũng ông trùm', 5],
-    ['Chó dẫn đường phiêu lưu ký', 'Chó dẫn đường phiêu lưu ký', 8],
-    ['Đối mặt với thực tại', 'Đối mặt với thực tại', 9],
-    ['7 Ảo Tưởng Tình Yêu', '7 Ảo Tưởng Tình Yêu', 10],
-    ['Hạnh phúc là điều có thật', 'ạnh phúc là điều có thật', 11],
-    ['Tự Đào Giếng Trước Khi Chết Khát', 'Tự Đào Giếng Trước Khi Chết Khát', 12],
-    ['Động Lực 3.0', 'Động Lực 3.0', 13],
-    ['Đặng Thái Sơn – Người được Chopin chọn', ' Người được Chopin chọ', 14],
-    ['Gia Dinh Hanh Phuc', ' Người được Chopin chọ', 15]
+  {
+      title:  'A Hash', des: 'a collection of key-value pairs'
+  },
+  {
+      title: 'The Fault in our Stars', des: 'Khi lỗi thuộc về những vì sao'
+  },
+  {
+      title: 'Hạnh phúc là điều có thật', des: 'ạnh phúc là điều có thật'
+  },
+  {
+      title: 'Gia Dinh Hanh Phuc', des: 'Người được Chopin chọ'
+  },
+  {
+      title: 'The Catcher in the Rye', des: 'Bắt trẻ đồng xanh'
+  },
+  {
+      title: '7 Ảo Tưởng Tình Yêu', des: '	7 Ảo Tưởng Tình Yêu'
+  },
+  {
+      title: 'Biển Và Chim Bói Cá', des: '	Biển Và Chim Bói Cá'
+  },
+  {
+      title: 'Đặng Thái Sơn – Người được Chopin chọn', des: 'Người được Chopin chọ'
+  },
+  {
+      title: 'Đối mặt với thực tại', des: 'Đối mặt với thực tại'
+  },
+  {
+      title: 'To Kill a Mockingbird', des: 'Giết con chim nhại'
+  },
+  {
+      title: 'Tự Đào Giếng Trước Khi Chết Khát', des: 'Tự Đào Giếng Trước Khi Chết Khát'
+  },
+  {
+      title: 'Chó dẫn đường phiêu lưu ký', des: 'Chó dẫn đường phiêu lưu ký'
+  },
+  {
+      title: 'Sào huyệt ông trùm', des: 'Sào huyệt của nhũng ông trùm'
+  },
+  {
+      title: 'Object', des: 'Sào huyệt  ông trùm'
+  },
+  {
+      title: 'Object', des: 'Sào huyệt của nhũng ông trùm'
+  }
 ]
+isbn_list = []
+
+15.times do
+  isbn =  rand(15)
+  begin
+    unless isbn_list.include?(isbn)
+      isbn_list << isbn
+    end
+    isbn = rand(15)
+  end until isbn_list.include?(isbn)
+end
 
 categories_list.each do |category_name|
   c = Category.create(category_name: category_name)
 
   books = []
+
   5.times do
     books << books_list[rand(books_list.length)]
     books_list = books_list - books
   end
-  books.each do |title, des, isbn|
-    Book.create(title: title, des: des, isbn: isbn, category_id: c.id)
+
+
+
+
+  books.each do |book|
+    book[:category_id] = c.id
+
+    book[:isbn] = isbn_list.pop
+    Book.create(book)
   end
 end
