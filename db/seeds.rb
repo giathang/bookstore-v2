@@ -1,32 +1,25 @@
 categories_list = [
-    'Hoat Hoa',
-    'Khoa Hoc',
-    'Toan Hoc'
+    "Thieu Nhi",
+    "Phieu Luu",
+    "Khoa Hoc"
 ]
-categories_list.each do |category|
-    Category.create(category_name: category)
-end
 
 books_list = [
-    ['Doremon', 'Truyen Tranh Do Re Mon', 123, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 122, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 121, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 120, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 126, 1],
-
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 133, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 132, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 131, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 135, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 137, 2],
-
-    ['Toan Lop 12', 'tinh roi toan ', 156, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 155, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 152, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 151, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 150, 3],
+    'The Fault in our Stars (Khi lỗi thuộc về những vì sao)',
+    'The Catcher in the Rye (Bắt trẻ đồng xanh)',
+    'The Book Thief (Kẻ trộm sách)',
+    'The Drifters (Sáu người đi khắp thế gian)',
+    'To Kill a Mockingbird (Giết con chim nhại)',
+    'Biển Và Chim Bói Cá',
+    'Sào huyệt của nhũng ông trùm',
+    'Chó dẫn đường phiêu lưu ký',
+    'Đối mặt với thực tại',
+    '7 Ảo Tưởng Tình Yêu',
+    'Hạnh phúc là điều có thật',
+    'Tự Đào Giếng Trước Khi Chết Khát',
+    'Động Lực 3.0',
+    'Đặng Thái Sơn – Người được Chopin chọn'
 ]
-
-books_list.each do |title, des, isbn, category_id|
-    Book.create(title: title, des: des, isbn: isbn, category_id: category_id)
+categories_list.each do |category|
+  Category.create(category_name: category)
 end
