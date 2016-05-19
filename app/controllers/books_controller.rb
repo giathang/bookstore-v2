@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all.paginate(page: params[:page], per_page: 10)
+    @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /books/1
@@ -76,4 +76,5 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :isbn, :des, :category_id)
     end
+
 end
