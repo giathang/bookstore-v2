@@ -1,3 +1,2 @@
-json.success "Create Success"
-json.partial! 'book'
+json.extract! @book, :id, :title, :isbn, :des, :category_id
 

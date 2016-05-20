@@ -1,3 +1,1 @@
-json.success "Create Success"
-json.partial! 'category'
-
+json.extract! @category, :id, :category_name

@@ -4,31 +4,43 @@ class Api::V1::CategoriesController < ApplicationController
   # GET api/v1/categories
   def index
     @categories = Category.all
+    respond_to do |format|
+      format.json {render :index, status: :ok}
+    end
   end
 
   # GET api/v1/categories/:id
   def show
-    unless @category.nil?
-      @category
-    end
   end
 
   # POST api/v1/categories
   def create
-    @category = Category.create(category_params)
+    @category = Category.new(category_params)
+    respond_to do |format|
+      if @category.save
+        format.json {render :create, status: :created}
+      else
+        format.json {render json: @category.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   # PUT api/v1/categories/:id
   def update
-    unless @category.nil?
-      @category.update(category_params)
+    respond_to do |format|
+      if @category.update(category_params)
+        format.json {render :show, status: :ok}
+      else
+        format.json {render json: @category.errors, status: :unprocessable_entity}
+      end
     end
   end
 
   # DELETE api/v1/category/:id
   def destroy
-    unless @category.nil?
-      @category.destroy
+    @category.destroy
+    respond_to do |format|
+      format.json {head :no_content}
     end
   end
 

@@ -1,4 +1,1 @@
-json.extract! @category, :id, :category_name
-json.books @category.books do |book|
-  json.extract! book, :id, :isbn, :des
-end
+json.extract! @book, :id, :title, :isbn, :des, :category_id
