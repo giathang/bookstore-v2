@@ -1,41 +1,84 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# Create Category
 categories_list = [
-    'Hoat Hoa',
-    'Khoa Hoc',
-    'Toan Hoc'
+    "Thieu Nhi",
+    "Phieu Luu",
+    "Khoa Hoc"
 ]
-categories_list.each do |category|
-  Category.create(category_name: category)
-end
 
 books_list = [
-    ['Doremon', 'Truyen Tranh Do Re Mon', 123, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 122, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 121, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 120, 1],
-    ['Doremon', 'Truyen Tranh Do Re Mon', 126, 1],
-
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 133, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 132, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 131, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 135, 2],
-    ['Dinh Luat Bao Toan Khoi Luong', 'em yeu khoa hoc', 137, 2],
-
-    ['Toan Lop 12', 'tinh roi toan ', 156, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 155, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 152, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 151, 3],
-    ['Toan Lop 12', 'tinh roi toan ', 150, 3],
+  {
+      title:  'A Hash', des: 'a collection of key-value pairs'
+  },
+  {
+      title: 'The Fault in our Stars', des: 'Khi lỗi thuộc về những vì sao'
+  },
+  {
+      title: 'Hạnh phúc là điều có thật', des: 'ạnh phúc là điều có thật'
+  },
+  {
+      title: 'Gia Dinh Hanh Phuc', des: 'Người được Chopin chọ'
+  },
+  {
+      title: 'The Catcher in the Rye', des: 'Bắt trẻ đồng xanh'
+  },
+  {
+      title: '7 Ảo Tưởng Tình Yêu', des: '	7 Ảo Tưởng Tình Yêu'
+  },
+  {
+      title: 'Biển Và Chim Bói Cá', des: '	Biển Và Chim Bói Cá'
+  },
+  {
+      title: 'Đặng Thái Sơn – Người được Chopin chọn', des: 'Người được Chopin chọ'
+  },
+  {
+      title: 'Đối mặt với thực tại', des: 'Đối mặt với thực tại'
+  },
+  {
+      title: 'To Kill a Mockingbird', des: 'Giết con chim nhại'
+  },
+  {
+      title: 'Tự Đào Giếng Trước Khi Chết Khát', des: 'Tự Đào Giếng Trước Khi Chết Khát'
+  },
+  {
+      title: 'Chó dẫn đường phiêu lưu ký', des: 'Chó dẫn đường phiêu lưu ký'
+  },
+  {
+      title: 'Sào huyệt ông trùm', des: 'Sào huyệt của nhũng ông trùm'
+  },
+  {
+      title: 'Object', des: 'Sào huyệt  ông trùm'
+  },
+  {
+      title: 'Object', des: 'Sào huyệt của nhũng ông trùm'
+  }
 ]
+isbn_list = []
 
-books_list.each do |title, des, isbn, category_id|
-  Book.create(title: title, des: des, isbn: isbn, category_id: category_id)
+until isbn_list.count == 15
+  isbn =  1 + rand(15)
+  unless isbn_list.include?(isbn)
+    isbn_list << isbn
+  else
+    isbn = 1 + rand(15)
+  end
+end
+
+categories_list.each do |category_name|
+  c = Category.create(category_name: category_name)
+
+  books = []
+
+  5.times do
+    books << books_list[rand(books_list.length)]
+    books_list = books_list - books
+  end
+
+
+
+
+  books.each do |book|
+    book[:category_id] = c.id
+
+    book[:isbn] = isbn_list.pop
+    Book.create(book)
+  end
 end
