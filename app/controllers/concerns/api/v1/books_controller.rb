@@ -13,6 +13,9 @@ class Api::V1::BooksController < ApplicationController
 
   # GET api/v1/categories/:id/books
   def show
+    respond_to do |format|
+      format.json {render :show, status: :ok}
+    end
   end
 
   #POST api/v1/books
