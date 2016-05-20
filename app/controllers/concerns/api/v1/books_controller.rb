@@ -9,6 +9,9 @@ class Api::V1::BooksController < ApplicationController
 
   # GET api/v1/books/:id
   def show
+    unless @book.nil?
+      @book
+    end
   end
 
   #POST api/v1/books
@@ -18,12 +21,16 @@ class Api::V1::BooksController < ApplicationController
 
   #PUT api/v1/books/:id
   def update
-    @book.update(book_params)
+    unless @book.nil?
+      @book.update(book_params)
+    end
   end
 
   #DELETE api/v1/books/:id
   def destroy
-    @book.destroy
+    unless @book.nil?
+      @book.destroy
+    end
   end
 
   private
