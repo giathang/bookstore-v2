@@ -1,6 +1,4 @@
-if @book.nil?
-  json.error "Not Found any Book"
-else
-  json.partial! 'book'
-  json.extract! @book.category, :category_name
+json.extract! @category, :id, :category_name
+json.books @category.books do |book|
+  json.extract! book, :id, :isbn, :des
 end

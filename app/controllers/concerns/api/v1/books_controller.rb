@@ -1,5 +1,5 @@
 class Api::V1::BooksController < ApplicationController
-  before_action :get_book, only: [:show, :update, :destroy]
+  before_action :get_book, only: [:update, :destroy]
 
 
   # GET api/v1/books
@@ -7,11 +7,9 @@ class Api::V1::BooksController < ApplicationController
     @books = Book.all
   end
 
-  # GET api/v1/books/:id
+  # GET api/v1/categories/:id/books
   def show
-    unless @book.nil?
-      @book
-    end
+    @category = Category.find_by(id: params[:category_id])
   end
 
   #POST api/v1/books
