@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :categories
 
   # create API
-  namespace :api, defauls: {format: 'json'} do
+  namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :books
       resources :categories
