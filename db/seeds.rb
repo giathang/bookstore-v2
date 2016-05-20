@@ -53,14 +53,13 @@ books_list = [
 ]
 isbn_list = []
 
-15.times do
-  isbn =  rand(15)
-  begin
-    unless isbn_list.include?(isbn)
-      isbn_list << isbn
-    end
-    isbn = rand(15)
-  end until isbn_list.include?(isbn)
+until isbn_list.count == 15
+  isbn =  1 + rand(15)
+  unless isbn_list.include?(isbn)
+    isbn_list << isbn
+  else
+    isbn = 1 + rand(15)
+  end
 end
 
 categories_list.each do |category_name|
