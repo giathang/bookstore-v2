@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :books
-      resources :categories
+      resources :categories do
+        get 'books' => 'categories#show_book' , on: :member
+      end
     end
   end
 end
