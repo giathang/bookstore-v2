@@ -1,5 +1,5 @@
 class Api::V1::CategoriesController < ApplicationController
-  before_action :get_category, only: [:show, :show_book, :update, :destroy]
+  before_action :get_category, only: [:show, :get_books_by_category, :update, :destroy]
 
   # GET api/v1/categories
   def index
@@ -18,10 +18,10 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   # GET api/v1/categories/:id/books
-  def show_book
+  def get_books_by_category
     @books = @category.books
     respond_to do |format|
-      format.json {render :show_book, status: :ok}
+      format.json {render :get_books_by_category, status: :ok}
     end
   end
 
