@@ -5,6 +5,7 @@ class Api::V1::BooksController < ApplicationController
   # GET api/v1/books
   def index
     @books = Book.all
+
     respond_to do |format|
       format.json {render :index, status: :ok}
     end
@@ -17,6 +18,7 @@ class Api::V1::BooksController < ApplicationController
   #POST api/v1/books
   def create
     @book = Book.new(book_params)
+
     respond_to do |format|
       if @book.save
         format.json {render :create, status: :created}
@@ -29,6 +31,7 @@ class Api::V1::BooksController < ApplicationController
 
   #PUT api/v1/books/:id
   def update
+
     respond_to do |format|
       if @book.update(book_params)
         format.json {render :show, status: :ok}
@@ -42,6 +45,7 @@ class Api::V1::BooksController < ApplicationController
   #DELETE api/v1/books/:id
   def destroy
     @book.destroy
+
     respond_to do |format|
       format.json {head :no_content}
     end

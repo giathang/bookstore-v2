@@ -4,6 +4,7 @@ class Api::V1::CategoriesController < ApplicationController
   # GET api/v1/categories
   def index
     @categories = Category.all
+
     respond_to do |format|
       format.json {render :index, status: :ok}
     end
@@ -16,6 +17,7 @@ class Api::V1::CategoriesController < ApplicationController
   # POST api/v1/categories
   def create
     @category = Category.new(category_params)
+
     respond_to do |format|
       if @category.save
         format.json {render :create, status: :created}
@@ -27,6 +29,7 @@ class Api::V1::CategoriesController < ApplicationController
 
   # PUT api/v1/categories/:id
   def update
+
     respond_to do |format|
       if @category.update(category_params)
         format.json {render :show, status: :ok}
@@ -39,6 +42,7 @@ class Api::V1::CategoriesController < ApplicationController
   # DELETE api/v1/category/:id
   def destroy
     @category.destroy
+
     respond_to do |format|
       format.json {head :no_content}
     end
