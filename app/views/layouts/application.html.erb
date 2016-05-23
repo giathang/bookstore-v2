@@ -8,11 +8,20 @@
 </head>
 <body>
 
-  <nav class="nav navbar-inverse">
+  <nav class="nav navbar-inverse ">
     <div class="container">
       <div class="navbar-header">
         <%= link_to "Book Store", root_path, class: "navbar-brand" %>
       </div>
+      <ul class="nav navbar-nav pull-right">
+      <% if current_user %>
+          <li><%= current_user.email %></li>
+          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+      <% else %>
+          <li><%= link_to "Log in", 'login' %></a></li>
+          <li><%= link_to "Sign up", 'signup' %></a></li>
+      <% end %>
+      </ul>
     </div>
   </nav>
   <div class="container">
