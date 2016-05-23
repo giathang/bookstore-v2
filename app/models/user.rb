@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
             format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
             uniqueness: true
   has_secure_password
-
   validates :password, length: {minimum: 6}
   validates :password_confirmation, presence: true
+
+  def admin?
+    self.role == 'admin'
+  end
 end

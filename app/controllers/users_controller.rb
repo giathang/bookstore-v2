@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_categories
-
+  before_action :require_admin, except: [:new, :create]
 
   def index
     @users = User.all
