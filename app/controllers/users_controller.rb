@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :require_admin, except: [:new, :create]
 
   def index
-    @users = User.all
+    @users = User.where(role: nil)
   end
 
   def new
@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
 
   private
