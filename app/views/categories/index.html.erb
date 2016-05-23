@@ -15,4 +15,8 @@
 <% if current_user %>
   <%= link_to 'New Category', new_category_path, class: 'btn btn-info' %> |
 <% end %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Seen Users', users_path, class: 'btn btn-info' %> |
+<% end %>
 <%= link_to 'Seen Books', books_path, class: 'btn btn-info' %>
+
