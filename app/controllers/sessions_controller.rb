@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_action :get_categories
-  def new
 
+  def new
   end
 
   def create
@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_path
-
   end
+
   private
 
   def get_categories

@@ -6,6 +6,7 @@
       </div>
 
     <%= form_for(:session , url: login_path) do |f| %>
+
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, placeholder: "examp@gmail.co" %>

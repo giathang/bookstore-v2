@@ -15,5 +15,6 @@
 
 <div id="books"><%= render 'books' %></div>
 
-
-<%= link_to 'New Book', new_book_path, class: 'btn btn-default' %>
+<% if current_user %>
+  <%= link_to 'New Book', new_book_path, class: 'btn btn-default' %>
+<% end %>
