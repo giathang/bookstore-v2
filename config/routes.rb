@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'books#index'
   resources :books
   resources :categories
+  get '/signup' => 'users#new'
+  resources 'users'
 
   # create API
   namespace :api, defaults: {format: 'json'} do
