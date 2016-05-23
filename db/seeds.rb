@@ -82,3 +82,6 @@ categories_list.each do |category_name|
     Book.create(book)
   end
 end
+
+
+User.create(name: 'Thang', email: '123@123.com', password: '123123', password_confirmation: '123123', role: 'admin')
