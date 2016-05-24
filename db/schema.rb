@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523073907) do
+ActiveRecord::Schema.define(version: 20160524065853) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160523073907) do
     t.datetime "updated_at",                  null: false
     t.string   "password_digest", limit: 255
     t.string   "role",            limit: 255
+    t.string   "auth_token",      limit: 255
   end
 
   add_foreign_key "books", "categories"
