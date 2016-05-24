@@ -11,11 +11,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def require_user
-    redirect_to root_path unless current_user
-  end
-
   def require_admin
-    redirect_to root_path unless current_user && current_user.admin?
+    redirect_to root_path unless current_user.admin?
   end
 end

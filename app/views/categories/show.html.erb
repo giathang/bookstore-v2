@@ -19,7 +19,7 @@
       <td><%=link_to book.title, book %></td>
       <td><%= book.isbn %></td>
       <td><%= book.des %></td>
-      <% if current_user %>
+      <% if current_user && current_user.admin? %>
         <td><%= link_to 'Edit', edit_book_path(book),class: 'btn btn-info' %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       <% end %>
@@ -27,7 +27,7 @@
   <% end %>
   </tbody>
 </table>
-<% if current_user %>
+<% if current_user && current_user.admin? %>
   <%= link_to 'New Book', new_book_path, class: 'btn btn-default'%>
 <% end %>
 <%= link_to 'Back', books_path, class: 'btn btn-default' %>
