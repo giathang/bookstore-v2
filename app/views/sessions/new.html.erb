@@ -1,0 +1,30 @@
+<div class="form-user">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="page-header">
+        <h1>Log in</h1>
+      </div>
+
+    <%= form_for(:session , url: login_path) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: "examp@gmail.co" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "**********"%>
+      </div>
+
+      <div class="form-group">
+          <%= f.label :remember_me %>
+          <%= f.check_box :remember_me %>
+      </div>
+
+
+      <%= f.submit "Log in", class: "btn-info" %>
+    <% end %>
+    </div>
+  </div>
+</div>

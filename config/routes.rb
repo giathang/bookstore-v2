@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :books
   resources :categories
 
+  resources 'users'
+  get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   # create API
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
