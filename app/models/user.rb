@@ -7,10 +7,14 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: {minimum: 6}
   validates :password_confirmation, presence: true
+
   before_create :generate_token
+
   def admin?
     self.role == 'admin'
   end
+
+  private
 
   def generate_token
     begin
