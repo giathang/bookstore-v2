@@ -7,14 +7,14 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: {minimum: 6}
   validates :password_confirmation, presence: true
-  before_create {generate_token(:auth_token)}
+  before_create :generate_token
   def admin?
     self.role == 'admin'
   end
 
-  def generate_token(column)
+  def generate_token
     begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
+      self.auth_token = SecureRandom.urlsafe_base64
+    end while User.exists?(auth_token: self.auth_token)
   end
 end
