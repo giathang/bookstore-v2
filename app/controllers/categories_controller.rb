@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :get_categories
+  before_action :require_login
   before_action :require_admin, except: [:index, :show]
+  before_action :get_categories
   before_action :find_category, only: [:edit, :update, :show, :destroy]
 
 

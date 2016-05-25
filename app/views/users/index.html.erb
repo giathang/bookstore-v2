@@ -7,7 +7,7 @@
   <tr>
     <th>Name</th>
     <th>email</th>
-    <td>password</td>
+    <td>auth_token</td>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.name%></td>
+      <td><%= user.name %></td>
       <td><%= user.email %></td>
-      <td><%= user.password_digest%></td>
+      <td><%= user.auth_token %></td>
       <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
     </tr>
   <% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'books#index'
+  get 'home' => 'static_pages#home'
   resources :books
   resources :categories
 
