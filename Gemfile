@@ -27,11 +27,10 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 # gem create breadcrumbs
 gem 'gretel', '~> 3.0', '>= 3.0.8'
 # gem jquery
-gem 'jquery-rails'
 
 gem 'will_paginate', '~> 3.1'
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app serverc
 # gem 'unicorn'

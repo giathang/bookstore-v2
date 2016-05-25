@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.where(role: nil)
+    @users = User.all
   end
 
 

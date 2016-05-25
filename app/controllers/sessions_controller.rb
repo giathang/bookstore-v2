@@ -4,15 +4,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
-      if params[:session][:remember_me]
-        cookies.permanent[:auth_token] = user.auth_token
+    user = User.find_by_email(params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
+      if params[:user][:remember_me]
+        cookies[:auth_token] = {value: user.auth_token, expires: 1.minutes.from_now }
       else
         session[:auth_token] = user.auth_token
       end
-      redirect_to root_path, notice: 'Login success .'
+      flash[:info] = "Login Success."
+      redirect_to root_path
     else
+      flash.now[:danger] = "Invalid login or password."
       render 'new'
     end
   end
@@ -21,9 +23,10 @@ class SessionsController < ApplicationController
     if cookies[:auth_token]
       cookies.delete(:auth_token)
     else
-      sessions.delete(:auth_token)
+      session.delete(:auth_token)
     end
-    redirect_to root_path, notice: 'Logout success .'
+    flash[:info] = "Logout Success."
+    redirect_to home_path
   end
 
   private
