@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       if params[:user][:remember_me]
-        cookies[:auth_token] = {value: user.auth_token, expires: 1.minutes.from_now }
+        cookies[:auth_token] = {value: user.auth_token, expires: 2.minutes.from_now }
       else
         session[:auth_token] = user.auth_token
       end
