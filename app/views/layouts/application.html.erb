@@ -23,26 +23,28 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
-     <%= breadcrumbs  display_single_fragment: true, style: :bootstrap %>
-  </div>
+  <% if current_user %>
     <div class="container">
-      <div class="body">
-        <% if current_user %>
-        <div class="body-left">
-          <%= render template: 'categories/index' %>
-        </div>
-        <div class="body-right">
+       <%= breadcrumbs  display_single_fragment: true, style: :bootstrap %>
+    </div>
+  <% end %>
+  <div class="container">
+    <div class="body">
+      <% if current_user %>
+      <div class="body-left">
+        <%= render template: 'categories/index' %>
+      </div>
+      <div class="body-right">
+        <%= yield %>
+      </div>
+      <%else%>
+        <div class="body-before">
           <%= yield %>
         </div>
-        <%else%>
-          <div class="body-before">
-            <%= yield %>
-          </div>
 
-        <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 
 
 </body>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   before_action :get_categories
 
@@ -6,6 +7,7 @@ class UsersController < ApplicationController
   def index
     @users = User.where(role: nil)
   end
+
 
   def new
     @user = User.new
