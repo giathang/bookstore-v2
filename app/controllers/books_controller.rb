@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.order('title ASC').search(params[:search]).paginate(page: params[:page], per_page: 10)
+    @books = Book.order('created_at DESC').search(params[:search]).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /books/1
