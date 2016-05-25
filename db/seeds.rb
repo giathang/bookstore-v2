@@ -83,5 +83,3 @@ categories_list.each do |category_name|
   end
 end
 
-
-User.create(name: 'Thang', email: 'admin@gmail.com', password: '123123', password_confirmation: '123123', role: 'admin')

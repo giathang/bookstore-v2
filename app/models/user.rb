@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
 
   before_create :generate_token
 
-  def admin?
-    self.role == 'admin'
-  end
-
   private
 
   def generate_token

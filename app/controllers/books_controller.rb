@@ -1,12 +1,11 @@
 class BooksController < ApplicationController
   before_action :require_login
-  before_action :require_admin, except: [:index, :show]
   before_action :get_categories
   before_action :get_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   def index
-    @books = Book.order('title ASC').search(params[:search]).paginate(page: params[:page], per_page: 10)
+    @books = Book.order('created_at DESC').search(params[:search]).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /books/1
